@@ -17,6 +17,10 @@ const LinkedList = function() {
     this.tail = function() { return this._tail; };
 
     this.add = function(data) {
+        if (data === null) {
+            return;
+        }
+
         let node = new Node(data);
         if (this._root == null) {
             this._root = node;
@@ -34,6 +38,10 @@ const LinkedList = function() {
     };
 
     this.remove = function(data) {
+        if (data === null || this._root === null) {
+            return;
+        }
+
         let pNode = this._root;
         let ppNode = this._root;
         while (pNode !== null) {
@@ -50,7 +58,7 @@ const LinkedList = function() {
                     ppNode.next = pNode.next;
                 }
                 --this._len;
-                break;
+                return pNode;
             }
             ppNode = pNode;
             pNode = pNode.next;
