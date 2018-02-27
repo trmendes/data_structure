@@ -20,6 +20,7 @@ const LinkedList = function() {
         let node = new Node(data);
         if (this._root == null) {
             this._root = node;
+            this._tail = this._root;
         } else {
             let pNode = this._root;
             while (pNode.next !== null) {
