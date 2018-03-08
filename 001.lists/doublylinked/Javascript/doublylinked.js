@@ -4,6 +4,10 @@ const DoubleLinkedList = function() {
     this._len = 0;
 
     const Node = function(data) {
+        if (!data) {
+            return;
+        }
+
         this.data = data;
         this.next = null;
         this.prev = null;
